@@ -8,6 +8,10 @@ int main()
 {
     //  ストリング型に表示させたいテキスト（Hello World!）を入れる
     std::string text = "Hello World!";
+    //  反転させる用のテキスト用変数
+    std::string text_rev = text;
+    //  テキストを反転
+    std::reverse(text_rev.begin(), text_rev.end());
 
     for (int i = 0; i < 100; ++i) 
     {
@@ -19,12 +23,8 @@ int main()
         }
         else
         {
-            //  文字列を反転
-            std::reverse(text.begin(), text.end());
             //  出力
-            std::cout << text << std::endl;
-            //  文字列を反転させて元の文字列の並びに戻す
-            std::reverse(text.begin(), text.end());
+            std::cout << text_rev << std::endl;
         }
     }
 }
