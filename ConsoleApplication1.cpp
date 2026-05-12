@@ -11,7 +11,21 @@ int main()
 
     for (int i = 0; i < 100; ++i) 
     {
-        std::cout << "Hello World!\n";
+        //  ２回に１回反転した文字列を出力する
+        if (i % 2 == 0)
+        {
+            //  出力
+            std::cout << text << std::endl;
+        }
+        else
+        {
+            //  文字列を反転
+            std::reverse(text.begin(), text.end());
+            //  出力
+            std::cout << text << std::endl;
+            //  文字列を反転させて元の文字列の並びに戻す
+            std::reverse(text.begin(), text.end());
+        }
     }
 }
 
