@@ -6,7 +6,8 @@
 
 int main()
 {
-    
+    //  ストリング型に表示させたいテキスト（Hello World!）を入れる
+    std::string text = "Hello World!";
 
     for (int i = 0; i < 100; ++i) 
     {
