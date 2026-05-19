@@ -2,18 +2,36 @@
 //
 
 #include <iostream>
+int* Foo()
+{
+	int a = 10;				
+//	return &a;				//	領域がかぶる
+	return new int(10);		
+}
+void Foo2(int *p)
+{
+	int b = 10;
+	std::cout << &b << std::endl;	//	ｂのアドレスを表示（この時点でaのアドレスとかぶっている）
+	std::cout << b << std::endl;	//	ｂの数値を表示（１０）
+
+	*p = 20;						//	引数で持ってきたpの値を２０にする
+
+	std::cout << b << std::endl;	//	ｂの数値を表示（ｐのアドレスがｂのアドレスとかぶっているため２０が表示される）
+
+}
 
 int main()
 {
-	int v1 = 10;
-	int v2 = 20;
-	int* p1 = new int(20);
-	float* p2 = new float(20);
+//	int a = 10;					//	スタック：スコープ終了時に解放
+//	int* p = new int(10);		//	ヒープ：明示的にdeleteが必要
+	int* p = Foo();		//	pのアドレスがaのアドレスになる
+	Foo2(p);
+	
+	std::cout << p << std::endl;		//	ｐのアドレス（ｂのアドレスと同じ）
+	std::cout << &p << std::endl;		//	ｐのスタックアドレスを表示
 
-	std::cout << &v1 << std::endl;
-	std::cout << &v2 << std::endl;
-	std::cout << p1 << std::endl;
-	std::cout << p2 << std::endl;
+	delete p;							//	メモリの解放
+	
 }
 
 // プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー
