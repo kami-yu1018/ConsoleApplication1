@@ -5,7 +5,15 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	int v1 = 10;
+	int v2 = 20;
+	int* p1 = new int(20);
+	float* p2 = new float(20);
+
+	std::cout << &v1 << std::endl;
+	std::cout << &v2 << std::endl;
+	std::cout << p1 << std::endl;
+	std::cout << p2 << std::endl;
 }
 
 // プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー
